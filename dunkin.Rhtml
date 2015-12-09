@@ -1,0 +1,23 @@
+<html>
+
+<head>
+<title>Title</title>
+</head>
+
+<body>
+
+<p>This is an R HTML document. When you click the <b>Knit HTML</b> button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+
+<!--begin.rcode
+require(leaflet)
+require(dplyr)
+dunk <- read.csv("dunkindonuts.csv")
+dd <- dunk[,c("lat", "lng", "city", "state")]
+m <- leaflet(sbux) %>% addTiles('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png') 
+m %>% setView(-98.964844, 38.505191, zoom = 4)
+m %>% addCircles(~lon, ~lat, weight = 2, radius=1, color = "#00ff00", stroke = FALSE, fillOpacity = 0.5) 
+m
+end.rcode-->
+
+</body>
+</html>

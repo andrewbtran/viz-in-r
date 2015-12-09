@@ -1,0 +1,17 @@
+---
+title: "Starbucks and Dunkin map"
+author: "Andrew Ba Tran"
+date: "June 12, 2015"
+output: html_document
+---
+
+```{r}
+require(leaflet)
+require(dplyr)
+dunk <- read.csv("dunkindonuts.csv")
+dd <- dunk[,c("lat", "lng", "city", "state")]
+m <- leaflet(dd) %>% addTiles('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png') 
+m %>% setView(-98.964844, 38.505191, zoom = 7)
+m %>% addCircles(~lng, ~lat, weight = 2, radius=1, color = "#FF8000", stroke = FALSE, fillOpacity = 0.5) %>% setView(-72.007654, 42.751062, zoom = 7)
+
+```
